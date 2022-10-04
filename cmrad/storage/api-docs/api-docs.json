@@ -1,0 +1,231 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "API cmRad",
+        "version": "1.0"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:8000"
+        }
+    ],
+    "paths": {
+        "/api/v1/repositories": {
+            "get": {
+                "tags": [
+                    "Repositories"
+                ],
+                "summary": "Returns all the repositories",
+                "description": "List of all hospitals and universities registred.",
+                "operationId": "4f1dafa1ab9b7d9398fbff188e316d86",
+                "responses": {
+                    "200": {
+                        "description": "Request has succeeded"
+                    },
+                    "default": {
+                        "description": "Request returned KO"
+                    }
+                }
+            }
+        },
+        "api/v1/repository/{repositoryId}/projects": {
+            "get": {
+                "tags": [
+                    "Repositories"
+                ],
+                "summary": "Returns all the projects of the given repository",
+                "operationId": "84247645d552c9c6f0bd998c65142c3c",
+                "responses": {
+                    "200": {
+                        "description": "Request has succeeded"
+                    },
+                    "default": {
+                        "description": "Request returned KO"
+                    }
+                }
+            }
+        },
+        "/api/v1/repository/{repositoryId}/subjects": {
+            "get": {
+                "tags": [
+                    "Subjects"
+                ],
+                "summary": "Returns all the subjects with the projects they are enrolled in.",
+                "operationId": "38078c81b8d20829e0ebaadabee7c774",
+                "responses": {
+                    "200": {
+                        "description": "Request has succeeded"
+                    },
+                    "default": {
+                        "description": "Request returned KO"
+                    }
+                }
+            }
+        },
+        "/api/v1/repository/{repositoryId}/subjects/create": {
+            "post": {
+                "tags": [
+                    "Subjects"
+                ],
+                "summary": "Let's the repositories create new subjects",
+                "operationId": "a47d2aa966e43f5f980e32c67241c904",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "example": "Marco Polo"
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "example": "name@mail.com"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Request has succeeded"
+                    },
+                    "default": {
+                        "description": "Request returned KO"
+                    }
+                }
+            }
+        },
+        "/api/v1/repository/{repositoryId}/subjects/{subjectId}/projects/{projectId}/assign": {
+            "post": {
+                "tags": [
+                    "Subjects"
+                ],
+                "summary": "Associate a subject with a project",
+                "operationId": "55031ff7c6b9fc280411dbb7acd308ab",
+                "responses": {
+                    "200": {
+                        "description": "Request has succeeded"
+                    },
+                    "default": {
+                        "description": "Request returned KO"
+                    }
+                }
+            }
+        },
+        "/api/v1/register": {
+            "post": {
+                "tags": [
+                    "Authtentication"
+                ],
+                "summary": "Create a new repository",
+                "operationId": "c8443fb95bbf4a97f23c39cbaf099216",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "example": "Hospital de Mallorca"
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "example": "name@mail.com"
+                                    },
+                                    "password": {
+                                        "type": "string",
+                                        "example": "secret"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Request has succeeded"
+                    },
+                    "default": {
+                        "description": "Request returned KO"
+                    }
+                }
+            }
+        },
+        "/api/v1/token": {
+            "post": {
+                "tags": [
+                    "Authtentication"
+                ],
+                "summary": "Create a Token to access de other endpoint using the repository credentials",
+                "operationId": "43be077104de607456b4dea7ed9c620e",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "email": {
+                                        "type": "string",
+                                        "example": "hb@mail.com"
+                                    },
+                                    "password": {
+                                        "type": "string",
+                                        "example": "secret"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Request has succeeded"
+                    },
+                    "default": {
+                        "description": "Request returned KO"
+                    }
+                }
+            }
+        },
+        "/api/v1/logout": {
+            "post": {
+                "tags": [
+                    "Authtentication"
+                ],
+                "summary": "Revoke all tokens",
+                "operationId": "f833f463bbd322d353bd84c79e410b2a",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "email": {
+                                        "type": "string",
+                                        "example": "hb@mail.com"
+                                    },
+                                    "password": {
+                                        "type": "string",
+                                        "example": "secret"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Request has succeeded"
+                    },
+                    "default": {
+                        "description": "Request returned KO"
+                    }
+                }
+            }
+        }
+    }
+}

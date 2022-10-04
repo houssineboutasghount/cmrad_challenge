@@ -1,0 +1,328 @@
+{
+	"info": {
+		"_postman_id": "0eb1ac22-481e-4ccb-a3ba-15cd07072afa",
+		"name": "cmRad",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "13298709"
+	},
+	"item": [
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Hospital de Barcelonaa\",\r\n    \"email\": \"hb@mail.com\",\r\n    \"password\": \"secret\"\r\n}"
+						},
+						"url": {
+							"raw": "localhost:8000/api/v1/register",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "token",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer <token>",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"hb@mail.com\",\r\n    \"password\": \"secret\"\r\n}"
+						},
+						"url": {
+							"raw": "localhost:8000/api/v1/token",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "logout",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer <token>",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 1\r\n}"
+						},
+						"url": {
+							"raw": "localhost:8000/api/v1/logout",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "repositories",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer <token>",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:8000/api/v1/repositories",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"repositories"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "repo/proj",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer <token>",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:8000/api/v1/repository/1/projects",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"repository",
+						"2",
+						"projects"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "repo/subjects/projects",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer <token>",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:8000/api/v1/repository/1/subjects",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"repository",
+						"2",
+						"subjects"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create subject",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer <token>",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\" : \"new_subjetc\",\r\n    \"email\": \"ns@mail.com\"\r\n}"
+				},
+				"url": {
+					"raw": "localhost:8000/api/v1/repository/1/subjects/create",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"repository",
+						"1",
+						"subjects",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "assign project to subject",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer <token>",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:8000/api/v1/repository/1/subjects/1/projects/1/assign",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"repository",
+						"2",
+						"subjects",
+						"8",
+						"projects",
+						"2",
+						"assign"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
